@@ -4,13 +4,20 @@ import UIKit
 
 var str = "Hello, playground"
 
-//let input = 361527
-let input = 1024
-//let input = 49
+let input = 361527
+//let input = 1024
+//let input = 10
 
-let size = Int(ceil(sqrt(Double(input))))
+print(sqrt(10))
 
+var size = Int(ceil(sqrt(Double(input))))
 
+//the array must be odd number sized
+if size % 2 == 0 {
+    size += 1
+}
+
+print(size)
 
 // 0...601 x 0...601 is the bounds of the array
 // 1 is in the center, so at 300, 300
@@ -78,7 +85,6 @@ for i in 1..<size - 1 {
 //print(array)
 print("weee (\(x), \(y))")
 print(middle)
-print(32*32)
 
 var manhattan = abs(x - middle) + abs(y - middle)
 
