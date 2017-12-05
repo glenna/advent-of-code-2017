@@ -4,11 +4,9 @@ import UIKit
 
 var str = "Hello, playground"
 
-let input = 361527
-//let input = 1024
+//let input = 361527
+let input = 26
 //let input = 10
-
-print(sqrt(10))
 
 var size = Int(ceil(sqrt(Double(input))))
 
@@ -36,7 +34,7 @@ print(size)
 //                                169
 //                                    225
 
-let middle = Int(size / 2)
+var middle = Int(size / 2)
 
 var array = Array.init(repeating: Array.init(repeating: 0, count: size), count: size)
 let theSquare = size * size
@@ -89,3 +87,55 @@ print(middle)
 var manhattan = abs(x - middle) + abs(y - middle)
 
 print("manhattan distance is: \(manhattan)")
+
+//part 2
+
+
+
+//start fresh
+array = Array.init(repeating: Array.init(repeating: 0, count: size), count: size)
+size = 3
+array[middle][middle] = 1
+
+var counter = 2
+
+let stepSize = 2
+
+repeat {
+    let variation = size / 2
+    let mid = variation
+    
+    let upperBounds = mid + variation
+    let lowerBounds = mid - variation
+
+    print((lowerBounds...upperBounds - 1).reversed())
+
+    for i in (lowerBounds...upperBounds - 1).reversed() {
+        array[i][upperBounds] = counter
+        print("(\(i),\(upperBounds)) = \(counter)")
+        counter += 1
+    }
+    print("==")
+    for i in (lowerBounds...upperBounds - 1).reversed() {
+        array[lowerBounds][i] = counter
+        print("(\(lowerBounds),\(i)) = \(counter)")
+        counter += 1
+    }
+    print("==")
+    for i in (lowerBounds...upperBounds - 1).reversed() {
+        array[i][lowerBounds] = counter
+        print("(\(i),\(lowerBounds)) = \(counter)")
+        counter += 1
+    }
+    print("==")
+    for i in lowerBounds+1...upperBounds {
+        array[upperBounds][i] = counter
+         print("(\(upperBounds),\(i)) = \(counter)")
+        counter += 1
+    }
+    print("==")
+    size += 2
+
+} while(size < 7)
+
+print(array)
