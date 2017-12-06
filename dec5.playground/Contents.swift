@@ -38,6 +38,9 @@ print(stepCount)
 
 // part 2
 
+// you probably don't want to uncomment this...playgrounds can't handle this
+// i will try on a mac pro 😬, but for now...i'll resort to python
+
 data = getInputData()
 currPosition = 0
 stepCount = 0
@@ -54,3 +57,4 @@ while (currPosition < data.count) {
 }
 
 print(stepCount)
+
