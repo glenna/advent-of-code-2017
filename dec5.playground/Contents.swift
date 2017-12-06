@@ -26,6 +26,13 @@ var data = getInputData()
 var currPosition = 0
 var stepCount = 0
 
+while (currPosition < data.count) {
+    let num = data[currPosition]
+    data[currPosition] += 1
+    currPosition += num
+    stepCount += 1
+}
+
 
 print(stepCount)
 
